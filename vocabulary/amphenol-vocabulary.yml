@@ -1,0 +1,164 @@
+vocabulary:
+  name: Amphenol Industrial Manufacturing Vocabulary
+  description: >-
+    Key concepts, product types, and technical terms used in Amphenol's connector,
+    interconnect, sensor, and antenna product domains spanning military-aerospace,
+    automotive, industrial, medical, and telecommunications markets.
+  version: "1.0.0"
+  terms:
+    - term: Connector
+      definition: >-
+        A device that joins electrical circuits together or separates them. Amphenol
+        manufactures electrical, electronic, and fiber optic connectors for a wide range
+        of industry applications including military, aerospace, automotive, and consumer electronics.
+      tags:
+        - product
+        - electrical
+        - core
+
+    - term: Interconnect System
+      definition: >-
+        A complete assembly of connectors, cables, adapters, and accessories that provides
+        a managed electrical or optical pathway between two or more electronic subsystems.
+        Includes backplane, cable, and board-level interconnect architectures.
+      tags:
+        - product
+        - system
+        - core
+
+    - term: MIL-DTL-38999
+      definition: >-
+        A U.S. military specification defining the requirements for circular, environment-
+        resistant, electrical connectors used in aerospace and defense applications. Amphenol
+        Aerospace is a major manufacturer of these high-reliability circular connectors.
+      tags:
+        - specification
+        - military
+        - aerospace
+        - standard
+
+    - term: RF Connector
+      definition: >-
+        A radio-frequency connector designed to work at radio frequencies (typically in the
+        megahertz to gigahertz range) while maintaining a consistent characteristic impedance
+        (usually 50 Ω or 75 Ω). Used in wireless infrastructure, broadband, and communications equipment.
+      tags:
+        - product
+        - RF
+        - wireless
+
+    - term: Fiber Optic Connector
+      definition: >-
+        A connector used to join optical fibers, allowing light signals to pass through. Enables
+        low-loss optical connections in telecommunications, data center, and military systems.
+        Amphenol Fiber Systems International (AFSI) specializes in these products.
+      tags:
+        - product
+        - fiber-optic
+        - telecommunications
+
+    - term: Sensor
+      definition: >-
+        An electronic device that detects and measures a physical quantity such as pressure,
+        temperature, position, humidity, or acceleration and converts it to an electrical signal.
+        Amphenol Advanced Sensors serves industrial, automotive, and medical markets.
+      tags:
+        - product
+        - sensing
+        - industrial
+        - automotive
+        - medical
+
+    - term: Antenna
+      definition: >-
+        A transducer that converts electrical signals into radio waves and vice versa.
+        Amphenol designs antennas for wireless infrastructure, mobile devices, automotive,
+        and IoT applications supporting cellular, Wi-Fi, GPS, and other wireless protocols.
+      tags:
+        - product
+        - wireless
+        - RF
+        - IoT
+
+    - term: IP Rating
+      definition: >-
+        Ingress Protection rating (IEC 60529) indicating the degree of protection provided
+        by a connector or enclosure against solid objects and liquids. Critical for specifying
+        connectors in harsh industrial, automotive, and outdoor environments.
+      tags:
+        - specification
+        - environmental
+        - standard
+
+    - term: Contact
+      definition: >-
+        The conductive element within a connector that makes the actual electrical connection.
+        Key parameters include contact count, material (copper alloy, gold-plated), current
+        rating, and contact resistance, all of which affect connector performance.
+      tags:
+        - component
+        - electrical
+        - core
+
+    - term: Backplane Connector
+      definition: >-
+        A high-density connector used to interconnect multiple printed circuit boards within
+        a chassis or rack system. Used extensively in telecommunications, data center servers,
+        and military electronic systems requiring high signal density and integrity.
+      tags:
+        - product
+        - data-center
+        - telecommunications
+
+    - term: Coaxial Cable
+      definition: >-
+        A type of electrical cable consisting of an inner conductor surrounded by a concentric
+        conducting shield, separated by a dielectric material. Used for RF signal transmission
+        in wireless base stations, broadband networks, and defense systems.
+      tags:
+        - product
+        - RF
+        - cable
+        - wireless
+
+    - term: High-Voltage Connector
+      definition: >-
+        A connector designed to carry electrical current at voltages above standard low-voltage
+        thresholds (typically above 60 V DC or 30 V AC), used in electric vehicle powertrains,
+        battery management systems, and industrial power applications.
+      tags:
+        - product
+        - automotive
+        - EV
+        - industrial
+
+    - term: Biocompatible Connector
+      definition: >-
+        A connector manufactured from materials that are compatible with human tissue and do
+        not cause adverse biological reactions. Required for implantable and patient-contacting
+        medical devices where standard materials may cause harm.
+      tags:
+        - product
+        - medical
+        - compliance
+
+    - term: ADAS
+      definition: >-
+        Advanced Driver Assistance Systems — electronic systems in vehicles that assist the
+        driver with safety and comfort features such as lane-keeping, adaptive cruise control,
+        and collision avoidance. Requires specialized connectors for sensors, cameras, and ECUs.
+      tags:
+        - automotive
+        - application
+        - safety
+
+    - term: Harsh Environment
+      definition: >-
+        Operating conditions characterized by extreme temperature, moisture, vibration, shock,
+        chemical exposure, or electromagnetic interference that can degrade standard electronic
+        components. Amphenol designs products specifically rated for these demanding conditions.
+      tags:
+        - environment
+        - specification
+        - industrial
+        - military

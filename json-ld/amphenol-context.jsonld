@@ -1,0 +1,104 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "amphenol": "https://www.amphenol.com/vocab#",
+    "ieee": "https://standards.ieee.org/vocab#",
+
+    "Amphenol": {
+      "@id": "schema:Organization",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "description": "schema:description",
+    "industry": "schema:industry",
+    "sameAs": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+
+    "Connector": {
+      "@id": "amphenol:Connector",
+      "@type": "@id"
+    },
+    "ElectricalConnector": {
+      "@id": "amphenol:ElectricalConnector",
+      "@type": "@id"
+    },
+    "FiberOpticConnector": {
+      "@id": "amphenol:FiberOpticConnector",
+      "@type": "@id"
+    },
+    "CoaxialConnector": {
+      "@id": "amphenol:CoaxialConnector",
+      "@type": "@id"
+    },
+    "RFConnector": {
+      "@id": "amphenol:RFConnector",
+      "@type": "@id"
+    },
+    "MilSpecConnector": {
+      "@id": "amphenol:MilSpecConnector",
+      "@type": "@id"
+    },
+    "Sensor": {
+      "@id": "amphenol:Sensor",
+      "@type": "@id"
+    },
+    "Antenna": {
+      "@id": "amphenol:Antenna",
+      "@type": "@id"
+    },
+    "InterconnectSystem": {
+      "@id": "amphenol:InterconnectSystem",
+      "@type": "@id"
+    },
+    "Cable": {
+      "@id": "amphenol:Cable",
+      "@type": "@id"
+    },
+
+    "partNumber": "schema:identifier",
+    "seriesName": "schema:name",
+    "contactCount": {
+      "@id": "amphenol:contactCount",
+      "@type": "xsd:integer"
+    },
+    "operatingTemperatureMin": {
+      "@id": "amphenol:operatingTemperatureMin",
+      "@type": "xsd:decimal"
+    },
+    "operatingTemperatureMax": {
+      "@id": "amphenol:operatingTemperatureMax",
+      "@type": "xsd:decimal"
+    },
+    "ipRating": "amphenol:ipRating",
+    "milSpec": "amphenol:milSpec",
+    "frequencyRange": "amphenol:frequencyRange",
+    "currentRating": {
+      "@id": "amphenol:currentRating",
+      "@type": "xsd:decimal"
+    },
+    "voltageRating": {
+      "@id": "amphenol:voltageRating",
+      "@type": "xsd:decimal"
+    },
+    "market": "schema:market",
+    "application": "schema:applicationCategory"
+  },
+
+  "@type": "schema:Organization",
+  "schema:name": "Amphenol Corporation",
+  "schema:url": "https://www.amphenol.com",
+  "schema:description": "One of the world's largest designers, manufacturers, and marketers of electrical, electronic, and fiber optic connectors, interconnect systems, antennas, sensors, and cables.",
+  "schema:industry": "Electronic Components Manufacturing",
+  "schema:sameAs": [
+    "https://www.linkedin.com/company/amphenol-corporation",
+    "https://en.wikipedia.org/wiki/Amphenol"
+  ]
+}

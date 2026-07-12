@@ -39,6 +39,8 @@ apis:
       connectors, interconnect systems, antennas, sensors, and cables. The company does not
       currently publish a public developer API.
 common:
+  - type: DomainSecurity
+    url: security/amphenol-domain-security.yml
   - type: Portal
     url: https://www.amphenol.com
   - type: PrivacyPolicy

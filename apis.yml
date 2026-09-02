@@ -42,7 +42,7 @@ tags:
   - Manufacturing
   - Fortune 500
 created: '2024-01-01'
-modified: '2026-04-19'
+modified: '2026-09-02'
 specificationVersion: '0.23'
 apis:
   - aid: amphenol:website
@@ -59,11 +59,111 @@ apis:
         url: https://www.amphenol.com
     description: >-
       Amphenol designs, manufactures, and markets electrical, electronic, and fiber optic
-      connectors, interconnect systems, antennas, sensors, and cables. The company does not
-      currently publish a public developer API.
+      connectors, interconnect systems, antennas, sensors, and cables. The corporate host runs no
+      developer programme: no portal, no documentation, no signup, no key and no published
+      contract, and it returns HTTP 403 at the CDN edge to every non-browser client on every path,
+      including /robots.txt. Two real API surfaces do exist elsewhere in the estate, both
+      undocumented and both found by probing the division hosts -- see the parts-direct-search and
+      automotive-mcp entries.
+  - aid: amphenol:parts-direct-search
+    name: Amphenol Industrial Parts Direct Search API
+    tags:
+      - Electronic Connectors
+      - Distributor Inventory
+      - Product Search
+      - Manufacturing
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+    baseURL: https://amphenol-industrial.com/wp-json/parts-direct-search/v1
+    humanURL: https://amphenol-industrial.com/connectors/parts-search/
+    description: >-
+      An undocumented but live and fully anonymous JSON endpoint that backs Amphenol Industrial's
+      own Parts Search page. GET /search?searchTerm=<part> returns {total, rows[]} where each row
+      is one authorised distributor's live stock for an Amphenol part number: distributor name,
+      the distributor's own SKU, quantity on hand, a last-updated timestamp and a deep buy link.
+      It takes exactly one parameter, offers no pagination, requires no key, and returns no
+      rate-limit headers. Amphenol publishes no documentation, no contract and no support channel
+      for it; everything recorded here was established by probing the endpoint directly.
+    properties:
+      - type: Authentication
+        url: authentication/amphenol-authentication.yml
+      - type: ErrorCatalog
+        url: errors/amphenol-problem-types.yml
+      - type: DataModel
+        url: data-model/amphenol-data-model.yml
+      - type: Conventions
+        url: conventions/amphenol-conventions.yml
+      - type: RateLimits
+        url: rate-limits/amphenol-rate-limits.yml
+      - type: LLMsTxt
+        url: llms/amphenol-industrial-llms.txt
+  - aid: amphenol:automotive-mcp
+    name: Amphenol Automotive MCP Server
+    tags:
+      - Model Context Protocol
+      - Automotive
+      - Agent Interface
+      - OAuth
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+    baseURL: https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
+    humanURL: https://amphenol-automotive.com/
+    description: >-
+      A live Model Context Protocol resource served by Amphenol's automotive division, discovered
+      through RFC 8414 authorization-server metadata and RFC 9728 protected-resource metadata at
+      that host's well-known paths. Access is OAuth 2.0 authorization-code with PKCE (S256),
+      public clients permitted, bearer token in the Authorization header, and a single coarse
+      scope named "mcp". An anonymous tools/list returns HTTP 401, so the tool set and its input
+      schemas are not public and none has been guessed at here. It is the only agent-facing
+      surface anywhere in the Amphenol estate.
+    properties:
+      - type: MCPServer
+        url: mcp/amphenol-mcp.yml
+      - type: Authentication
+        url: authentication/amphenol-authentication.yml
+      - type: OAuthScopes
+        url: scopes/amphenol-scopes.yml
+      - type: WellKnown
+        url: well-known/amphenol-well-known.yml
+      - type: LLMsTxt
+        url: llms/amphenol-automotive-llms.txt
 common:
+  - type: Website
+    url: https://www.amphenol.com/
   - type: DomainSecurity
     url: security/amphenol-domain-security.yml
+  - type: LLMsTxt
+    url: llms/amphenol-llms.txt
+  - type: WellKnown
+    url: well-known/amphenol-well-known.yml
+  - type: MCPServer
+    url: mcp/amphenol-mcp.yml
+  - type: Packages
+    url: packages/amphenol-packages.yml
+  - type: Authentication
+    url: authentication/amphenol-authentication.yml
+  - type: OAuthScopes
+    url: scopes/amphenol-scopes.yml
+  - type: Conventions
+    url: conventions/amphenol-conventions.yml
+  - type: ErrorCatalog
+    url: errors/amphenol-problem-types.yml
+  - type: DataModel
+    url: data-model/amphenol-data-model.yml
+  - type: Conformance
+    url: conformance/amphenol-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/amphenol-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/amphenol-rate-limits.yml
+  - type: Plans
+    url: plans/amphenol-plans-pricing.yml
+  - type: FinOps
+    url: finops/amphenol-finops.yml
+  - type: Vocabulary
+    url: vocabulary/amphenol-vocabulary.yml
+  - type: GitHubOrganization
+    url: https://github.com/AmphenolAdvancedSensors
+  - type: Blog
+    url: https://amphenol-industrial.com/news/
   - type: Portal
     url: https://www.amphenol.com
   - type: PrivacyPolicy
@@ -73,7 +173,7 @@ common:
   - type: Support
     url: https://www.amphenol.com/contact
   - type: LinkedIn
-    url: https://www.linkedin.com/company/amphenol-corporation
+    url: https://www.linkedin.com/company/amphenol
   - type: Features
     data:
       - name: Electrical Connectors
@@ -119,3 +219,9 @@ common:
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
+
+x-enrichment:
+  date: '2026-09-02'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

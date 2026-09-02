@@ -4,34 +4,50 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Amphenol
 providerId: amphenol
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-02'
+generated: '2026-09-02'
+method: probed
+source: >-
+  live response headers observed on
+  https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search?searchTerm=RADSOK
+reconciled: true
 tags:
   - Electronic Connectors
   - Interconnect Systems
   - Rate Limiting
 description: >-
-  Amphenol does not publish public API rate-limit documentation. Catalog and
-  EDI exchanges operate under distributor-specific agreements rather than a
-  public per-key throttling contract.
+  Amphenol documents no rate limits for either of its live API surfaces, and — more usefully for
+  an agent — returns no rate-limit signal at runtime either. This supersedes the 2026-05-04 bulk
+  sweep entry, which asserted the same absence from prose alone; the absence has now been
+  observed on the wire.
+limit_count: 0
 notes: >-
-  No public rate-limit documentation.
+  A full HTTP 200 response from the Parts Direct Search endpoint carries no X-RateLimit-Limit,
+  X-RateLimit-Remaining, X-RateLimit-Reset, RateLimit, RateLimit-Policy or Retry-After header.
+  The complete header set returned was Date, Server, X-Robots-Tag, Link, X-Content-Type-Options,
+  Access-Control-Expose-Headers, Access-Control-Allow-Headers, Allow, Vary,
+  Strict-Transport-Security, X-XSS-Protection, Expect-CT, Referrer-Policy, Transfer-Encoding and
+  Content-Type. A client therefore has no way to know how much budget it has, and no way to
+  learn a backoff interval except by being cut off. No 429 was provoked and none is documented.
 sources:
-  - https://www.amphenol.com
+  - https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search
+  - https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
 responseCodes: {}
-limits:
-  - name: No Public Rate Limit Documentation
-    scope: account
-    metric: varies
-    limit: 'see provider; not publicly documented'
+headers:
+  observed: []
+  exhaustion_status: null
+  retry_after: false
+limits: []
 policies:
   - name: Distributor / Bilateral SLA
     description: >-
-      EDI throughput and refresh cadence are defined per distributor or
-      direct-customer agreement.
+      EDI throughput and refresh cadence for distributor data exchange are defined per
+      distributor or direct-customer agreement, not by a public per-key throttle.
+x-evidence:
+  - url: https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search?searchTerm=RADSOK
+    status: 200
+    rate_limit_headers: none
+checked: '2026-09-02'
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com

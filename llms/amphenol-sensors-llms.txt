@@ -1,0 +1,31 @@
+# Amphenol Sensors
+
+> Amphenol Sensors unites 25 sensing brands measuring pressure, temperature, gas, position, vibration and more across automotive, aerospace, medical, industrial and energy markets.
+
+Amphenol Sensors is a family of independent sensing brands — including Telaire,
+NovaSensor, Kaye, Thermometrics and Airmar — part of Amphenol Corporation. This
+site maps measurement needs to the brands and products that serve them, and
+forwards inquiries to the relevant business unit.
+
+## Pages
+
+- [Home](/): The sensor portfolio at a glance, by measurement and market.
+- [About](/about): How 25 sensing brands fit together under Amphenol Sensors.
+- [Brands](/brands): Directory of all Amphenol Sensors brands.
+- [Markets](/markets): Sensing solutions by market, led by data center.
+- [Solutions](/measurands): Sensing solutions by measurement type — pressure, temperature, gas, position and more.
+- [Documents](/documents): Brochures, application guides and literature (PDF).
+- [Contact](/contact): Reach an applications engineer.
+- [Sitemap](/sitemap): Index of all public pages.
+
+## Examples
+
+- [Data center sensing](/markets/data-center): Thermal, pressure, humidity and leak sensing for data centers.
+- [HVACR sensing](/markets/hvacr): Sensors for ventilation, air flow, heating and cooling equipment.
+
+## Optional
+
+- [Privacy Policy](/privacy-policy): How personal data is handled.
+- [Cookie Policy](/cookie-policy): Cookie use and preferences.
+- [Terms of Use](/terms-of-use): Site terms.
+- [Legal Notice / Impressum](/impressum): Provider identification.

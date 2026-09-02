@@ -1,0 +1,134 @@
+generated: '2026-09-02'
+method: probed
+source: live GET probes of /.well-known/* on every Amphenol host reachable to this run
+provider: Amphenol
+providerId: amphenol
+description: >-
+  Well-known probe of Amphenol's corporate host and its division hosts. Two real documents
+  were served, both by Amphenol Automotive (amphenol-automotive.com): an RFC 8414 OAuth 2.0
+  Authorization Server Metadata document and an RFC 9728 OAuth 2.0 Protected Resource Metadata
+  document. Together they advertise a Model Context Protocol resource at
+  https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server with the single scope "mcp".
+  Everything else 404d or was refused at the edge.
+notes: >-
+  www.amphenol.com, amphenol.com, www.amphenolrf.com, amphenol-aerospace.com,
+  www.amphenolcanada.com and investors.amphenol.com return HTTP 403 "Access Denied" from the
+  CDN edge for EVERY path, including /robots.txt, when fetched by a non-browser client. That is
+  a bot policy, not a missing document — those hosts are not recorded as absent, they are
+  recorded as unprobeable by this run.
+  amphenol-industrial.com answers HTTP 200 to /.well-known/security.txt with its 222 KB
+  WordPress homepage. That is a soft-404 HTML shell, not an RFC 9116 document, and is recorded
+  as a miss.
+hosts:
+  - host: www.amphenol.com
+    note: CDN edge returns 403 Access Denied to every path for non-browser clients
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 403
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+      - path: /.well-known/agent.json
+        status: 403
+        file: null
+  - host: amphenol-automotive.com
+    note: Amphenol Automotive division site; serves two real OAuth metadata documents
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: amphenol-automotive-oauth-authorization-server.json
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: amphenol-automotive-oauth-protected-resource.json
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: amphenol-industrial.com
+    note: Amphenol Industrial Operations; /.well-known/security.txt answers 200 with an HTML shell (soft-404), treated as a miss
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        soft_404: true
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: amphenolsensors.com
+    note: Amphenol Sensors; Next.js host returns 404 HTML for every /.well-known/ path
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+agent_card:
+  found: false
+  note: >-
+    No A2A Agent Card. /.well-known/agent-card.json and the legacy /.well-known/agent.json
+    404 on every reachable host and 403 at the edge on the corporate hosts. Nothing was
+    authored on Amphenol's behalf.
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

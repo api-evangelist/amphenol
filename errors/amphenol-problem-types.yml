@@ -1,0 +1,94 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  error responses observed live from amphenol-industrial.com/wp-json/parts-direct-search/v1 and
+  amphenol-automotive.com/wp-json/mcp
+provider: Amphenol
+providerId: amphenol
+format: none
+format_note: >-
+  Not RFC 9457. Neither surface returns application/problem+json, and neither returns a type
+  URI, a title/detail split, or an instance. Two unrelated JSON error envelopes are served from
+  the same company's hosts. Every entry below was recorded from a real response this run; no
+  error was inferred from a status-code table.
+envelopes:
+  - id: parts-direct-search
+    shape: '{"message": "<human text>"}'
+    content_type: application/json; charset=UTF-8
+    used_by: https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search
+    note: >-
+      Carries no machine-readable code at all — only an English sentence. A client cannot
+      branch on the failure without string-matching the prose.
+  - id: wordpress-rest
+    shape: '{"code": "<slug>", "message": "<human text>", "data": {"status": <int>}}'
+    content_type: application/json; charset=UTF-8
+    used_by: WordPress REST core routes and the mcp namespace on both hosts
+    note: Machine-readable slug in "code"; HTTP status is duplicated inside "data".
+problem_types:
+  - id: missing-search-term
+    status: 400
+    envelope: parts-direct-search
+    code: null
+    title: Missing search term
+    message: Missing search term.
+    cause: >-
+      The searchTerm query parameter was absent or empty. Every other parameter name tested
+      (q, s, search, query, keyword, part, part_number, partNumber, text, search_term, st,
+      input, value) produced this same 400, so the endpoint accepts exactly one spelling.
+    remediation: Send ?searchTerm=<part number or series>.
+    observed_at: https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search
+  - id: mcp-unauthorized
+    status: 401
+    envelope: wordpress-rest
+    code: mcp_unauthorized
+    title: MCP authentication required
+    message: MCP authentication required.
+    cause: A Model Context Protocol request arrived without a valid OAuth bearer token.
+    remediation: >-
+      Complete the OAuth 2.0 authorization-code + PKCE flow advertised at
+      /.well-known/oauth-authorization-server and present the token in the Authorization header.
+    observed_at: https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
+  - id: rest-forbidden
+    status: 401
+    envelope: wordpress-rest
+    code: rest_forbidden
+    title: Not allowed
+    message: Sorry, you are not allowed to do that.
+    cause: >-
+      The caller lacks the WordPress capability the route requires. Returned by the
+      mcp-adapter-default-server route and by the wp-abilities/v1/abilities collection.
+    remediation: Authenticate as a principal holding the required capability.
+    observed_at: https://amphenol-automotive.com/wp-json/mcp/mcp-adapter-default-server
+  - id: rest-no-route
+    status: 404
+    envelope: wordpress-rest
+    code: rest_no_route
+    title: No route matched
+    message: No route was found matching the URL and request method.
+    cause: The path or HTTP method does not correspond to a registered REST route.
+    remediation: Read the route list from the /wp-json/ index for the host.
+    observed_at: https://amphenol-automotive.com/wp-json/mcp/v1
+  - id: html-shell-404
+    status: 404
+    envelope: null
+    title: HTML shell returned for an unmatched non-REST path
+    cause: >-
+      Any path outside /wp-json/ that does not resolve returns the site's full HTML 404 page —
+      93 KB on amphenol-automotive.com, 147 KB on amphenol-industrial.com — regardless of the
+      Accept header the client sent. A machine asking for application/json is handed a web page.
+    remediation: >-
+      Client-side concern only; Amphenol would need content negotiation on the 404 handler.
+      Recorded because it is what a naive agent probing these hosts will actually receive.
+  - id: edge-access-denied
+    status: 403
+    envelope: null
+    title: Access Denied (CDN edge)
+    cause: >-
+      www.amphenol.com, amphenol.com, www.amphenolrf.com, amphenol-aerospace.com,
+      www.amphenolcanada.com and investors.amphenol.com return a 370-430 byte
+      "<HTML><HEAD><TITLE>Access Denied</TITLE>" page to non-browser clients for every path,
+      including /robots.txt. This is a bot policy at the CDN, not an application error.
+    remediation: None available to a caller; it is an edge decision by Amphenol.
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

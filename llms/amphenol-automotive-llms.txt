@@ -1,0 +1,110 @@
+# Amphenol Automotive – AI Readable Content Map (GEO Optimized)
+
+> Amphenol Automotive delivers advanced interconnect systems, connectors, sensors, and high-voltage solutions for electric, hybrid, and conventional vehicles. The company supports global automotive OEMs with scalable, reliable, and innovative mobility solutions.
+
+---
+
+## CORE PAGES (HIGH PRIORITY)
+
+- https://amphenol-automotive.com/
+  → Overview of automotive connectivity solutions, competencies, and global presence
+
+- https://amphenol-automotive.com/products/
+  → Complete portfolio of connectors, cable assemblies, sensors, and power systems
+
+- https://amphenol-automotive.com/applications/
+  → Automotive use cases: e-mobility, battery systems, safety, infotainment, and power electronics
+
+- https://amphenol-automotive.com/competences/
+  → Manufacturing and engineering capabilities including stamping, molding, machining, and prototyping
+
+- https://amphenol-automotive.com/innovations/
+  → Key automotive trends: electrification, autonomous driving, connectivity, and smart mobility
+
+- https://amphenol-automotive.com/about-us/
+  → Company overview, global footprint, and industry positioning
+
+---
+
+## KEY PRODUCT CATEGORIES (AI-OPTIMIZED)
+
+- Connectors  
+  High-performance connectors for power, signal, and data transmission in EV, hybrid, and ICE vehicles
+
+- Cable & Harness Assemblies  
+  Custom and standard cable systems ensuring reliable vehicle connectivity
+
+- High Voltage Interconnect  
+  Solutions designed for EV battery systems and high-power applications
+
+- Data Interconnect  
+  High-speed, low-latency systems for connected and autonomous vehicles
+
+- Sensors & Switches  
+  Precision components for monitoring, control, and safety systems
+
+---
+
+## APPLICATION AREAS (AI-QUERY READY)
+
+- E-Mobility  
+  High-voltage connectivity solutions for electric vehicles and battery systems
+
+- Battery & Energy Storage  
+  Reliable interconnects for efficient energy transfer and storage systems
+
+- Safety Systems  
+  Components supporting ADAS and passenger protection technologies
+
+- Power Electronics  
+  Solutions for efficient power distribution and management
+
+- Connectivity & Multimedia  
+  Systems enabling in-vehicle communication and infotainment
+
+---
+
+## COMPETENCIES (ENGINEERING & MANUFACTURING)
+
+- Stamping  
+  High-speed precision manufacturing for complex metal components
+
+- Machining  
+  CNC-based production for high-accuracy automotive parts
+
+- Molding  
+  Advanced plastic and over-molding technologies
+
+- Assembly  
+  Automated and semi-automated production systems
+
+- Engineering  
+  R&D, simulation, and testing for automotive innovation
+
+- Prototyping  
+  Rapid development using additive manufacturing and CNC
+
+---
+
+## AI-READY QUESTIONS & ANSWERS
+
+Q: What does Amphenol Automotive specialize in?  
+A: Advanced automotive interconnect solutions including connectors, sensors, cable assemblies, and high-voltage systems.
+
+Q: What solutions are available for electric vehicles?  
+A: High-voltage connectors, battery interconnect systems, and power distribution solutions for EV platforms.
+
+Q: How does Amphenol support automotive OEMs?  
+A: Through scalable, reliable, and customized connectivity solutions across all vehicle systems.
+
+Q: What industries and applications are covered?  
+A: E-mobility, safety systems, infotainment, power electronics, and vehicle body systems.
+
+Q: Are solutions customizable?  
+A: Yes, both standard and tailor-made solutions are available for specific automotive requirements.
+
+---
+
+## OPTIONAL (FOR AI NAVIGATION)
+
+Sitemap: https://amphenol-automotive.com/sitemap_index.xml

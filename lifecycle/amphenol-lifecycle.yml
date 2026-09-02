@@ -1,0 +1,71 @@
+generated: '2026-09-02'
+method: probed
+source: DNS and HTTP probes of Amphenol hosts and candidate status/changelog subdomains
+provider: Amphenol
+providerId: amphenol
+description: >-
+  Amphenol operates two live API surfaces and publishes no lifecycle commitments for either.
+  There is no versioning policy, no deprecation policy, no Sunset or Deprecation header, no SLA,
+  no status page and no changelog. Recorded as an honest absence, probe by probe.
+versioning:
+  policy_published: false
+  scheme: path
+  detail: >-
+    Both surfaces carry a version segment in the WordPress REST namespace path
+    (/wp-json/parts-direct-search/v1/). That is a namespace convention, not a versioning
+    commitment — nothing states what changes would force a v2, how long v1 survives, or whether
+    breaking changes can land inside v1.
+  current:
+    - api: parts-direct-search
+      version: v1
+deprecation:
+  policy_published: false
+  rfc8594: false
+  detail: >-
+    No Deprecation or Sunset response header was returned on any 200 observed. No deprecation
+    page exists. No operation is marked deprecated anywhere, because there is no contract in
+    which to mark one.
+  deprecated_operations: []
+status_page:
+  published: false
+  detail: >-
+    status.amphenol.com does not resolve (NXDOMAIN). No Statuspage, Atlassian, Instatus or
+    Better Uptime property was found for any Amphenol domain, and no status link appears in the
+    three published llms.txt files.
+  evidence:
+    - host: status.amphenol.com
+      dns: NXDOMAIN
+sla:
+  published: false
+  detail: >-
+    No uptime or latency commitment is published for either surface. plans/ records that
+    distributor exchange terms are bilateral, which is where an availability commitment would
+    live if one existed.
+changelog:
+  published: false
+  detail: >-
+    No dated changelog, release-notes page or version history was found for either API surface.
+    The company publishes a corporate newsroom, but it covers acquisitions and earnings, not
+    interface changes.
+support:
+  channels:
+    - type: contact-form
+      url: https://www.amphenol.com/contact
+      note: general corporate contact; not a developer support channel
+  developer_support: false
+  detail: >-
+    There is no developer support channel, no forum, no Slack or Discord, and no address to
+    report a break in either API. A consumer of the Parts Direct Search endpoint has nowhere to
+    file a regression.
+observations:
+  - >-
+    The Parts Direct Search endpoint returns X-Robots-Tag: noindex, which is the closest thing
+    to a stated intent found anywhere: Amphenol does not want the endpoint indexed. It is not,
+    however, access-controlled, rate-limited or documented as private.
+  - >-
+    The MCP resource is the newest surface and the only one carrying formal discovery metadata,
+    yet it too has no version, no changelog and no deprecation commitment.
+checked: '2026-09-02'
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

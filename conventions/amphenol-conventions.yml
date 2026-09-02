@@ -1,0 +1,128 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  observed request/response behaviour of
+  https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search and
+  https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
+provider: Amphenol
+providerId: amphenol
+description: >-
+  Cross-cutting runtime semantics for the two live Amphenol API surfaces. Nothing here is taken
+  from documentation, because Amphenol publishes none for either surface; every field was read
+  off a real response. Both surfaces are WordPress REST namespaces, so the envelope and error
+  conventions are WordPress's rather than a designed API contract, and that is itself the
+  finding.
+auth:
+  style: mixed
+  detail: >-
+    Parts Direct Search is fully anonymous. The MCP resource is OAuth 2.0 authorization-code
+    with PKCE and a bearer token in the Authorization header. See
+    authentication/amphenol-authentication.yml.
+idempotency:
+  supported: false
+  state: na
+  detail: >-
+    No idempotency key header, no documented retry semantics. Not a gap in the usual sense:
+    Parts Direct Search is GET-only (the endpoint advertises Allow: GET) and therefore naturally
+    idempotent, and the MCP surface could not be exercised. There is no unsafe write surface to
+    make idempotent.
+pagination:
+  supported: false
+  detail: >-
+    The Parts Direct Search client JavaScript builds exactly one URL —
+    partsDirectSearchApiUrl + "?searchTerm=" + searchTerm — and the endpoint accepts no page,
+    per_page, limit, offset or cursor parameter. The response carries a "total" alongside a
+    "rows" array and returns the whole result set in one body. A caller has no way to page a
+    large result and no way to tell whether the set was truncated.
+  response_fields:
+    - total
+    - rows
+filtering:
+  supported: true
+  parameters:
+    - name: searchTerm
+      in: query
+      required: true
+      description: >-
+        Free-text part-number or series query. The only parameter the endpoint accepts.
+        Omitting it returns HTTP 400 {"message":"Missing search term."}.
+    - name: wpml_language
+      in: query
+      required: false
+      enum:
+        - en
+        - zh-hans
+      description: WPML translation layer language code, declared in the WordPress REST route descriptor.
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_id_tracing:
+  supported: false
+  detail: No X-Request-Id, correlation id, or trace header was returned on any response.
+versioning:
+  style: path
+  detail: >-
+    The version lives in the REST namespace path segment — /wp-json/parts-direct-search/v1/ —
+    which is WordPress's convention for a registered namespace. No version header, no version
+    negotiation, and no published policy about what a v2 would mean.
+  current: v1
+error_envelope:
+  formats:
+    - shape: '{"message": "<text>"}'
+      used_by: parts-direct-search/v1
+      example_status: 400
+    - shape: '{"code": "<slug>", "message": "<text>", "data": {"status": <int>}}'
+      used_by: WordPress REST core and the mcp namespace
+      example_status: 401
+  rfc9457: false
+  detail: >-
+    Two different envelopes are in play on the same company's hosts. The custom Parts Direct
+    handler returns a bare {"message": ...}; every WordPress-native route returns the
+    {"code","message","data.status"} shape. Neither is application/problem+json. See
+    errors/amphenol-problem-types.yml.
+rate_limit_signaling:
+  supported: false
+  detail: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header appears on a 200 response from the
+    Parts Direct Search endpoint. See rate-limits/amphenol-rate-limits.yml.
+caching:
+  supported: false
+  detail: >-
+    No ETag, no Cache-Control and no Last-Modified on the search response. The rows carry their
+    own lastUpdated timestamp in the body (formatted "09/02/26 19:10 PM", a non-ISO, ambiguous
+    12-hour string with a "PM" suffix on a 19:10 hour), so freshness is only expressible in the
+    payload and only in a form a machine has to guess at.
+security_headers:
+  observed:
+    - 'Strict-Transport-Security: max-age=63072000;'
+    - 'X-Content-Type-Options: nosniff'
+    - 'X-XSS-Protection: 1; mode=block'
+    - 'Referrer-Policy: no-referrer-when-downgrade'
+    - 'X-Robots-Tag: noindex'
+    - 'Access-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages, Link'
+reversibility:
+  state: na
+  grade: na
+  detail: >-
+    Both surfaces are read-only to an anonymous or unprivileged caller. Parts Direct Search
+    advertises Allow: GET and exposes no create, update or delete operation, so there is no
+    action to take back. The MCP resource may expose write tools, but its tools/list is
+    auth-gated and returned HTTP 401, so no write surface could be enumerated and no reversal
+    path or window is asserted here. Nothing about reversibility is claimed that was not
+    observed.
+  operations: []
+  windows: []
+dry_run_mode:
+  state: na
+  detail: No write surface was reachable, so a rehearsal mode has nothing to rehearse.
+cross_links:
+  - authentication/amphenol-authentication.yml
+  - scopes/amphenol-scopes.yml
+  - errors/amphenol-problem-types.yml
+  - lifecycle/amphenol-lifecycle.yml
+  - rate-limits/amphenol-rate-limits.yml
+  - data-model/amphenol-data-model.yml
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

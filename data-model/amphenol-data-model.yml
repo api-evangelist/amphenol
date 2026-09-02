@@ -1,0 +1,91 @@
+generated: '2026-09-02'
+method: probed
+source: https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search?searchTerm=RADSOK
+provider: Amphenol
+providerId: amphenol
+description: >-
+  The data model of the only Amphenol API surface that returns data to an anonymous caller.
+  Derived by reading a real 200 response, not from a schema — Amphenol publishes no schema, no
+  OpenAPI and no field reference for this endpoint. Field names and types below are exactly
+  what the wire carried on 2026-09-02.
+entities:
+  - name: SearchResult
+    description: The response envelope returned by /parts-direct-search/v1/search.
+    fields:
+      - name: total
+        type: integer
+        description: Number of rows in the result set. No indication of whether the set was truncated.
+      - name: rows
+        type: array
+        items: DistributorListing
+    relationships:
+      - type: has_many
+        target: DistributorListing
+        via: rows
+  - name: DistributorListing
+    description: >-
+      One Amphenol part offered by one authorised distributor, with live stock. This is a
+      distributor-inventory record, not a product-catalogue record: there is no datasheet,
+      no CAD model, no series, no specification, no price and no product description anywhere
+      in the payload.
+    fields:
+      - name: partNumber
+        type: string
+        description: The Amphenol part number.
+        example: 10-730188-230
+      - name: distributor
+        type: string
+        description: Authorised distributor name.
+        example: TTI, Inc.
+      - name: distributorNumber
+        type: string
+        description: The distributor's own SKU for the same part.
+        example: SLPPB35BSR
+      - name: distributorPopupLink
+        type: string
+        format: relative-path
+        description: >-
+          Site-relative path into an Amphenol interstitial, e.g.
+          /external/searchdetail/106619/100800/10730188230. Not an absolute URL, so a
+          non-browser consumer must know to resolve it against amphenol-industrial.com.
+      - name: package
+        type: string
+        description: Packaging descriptor. Empty string in every row observed.
+      - name: qty
+        type: string
+        description: >-
+          Distributor stock on hand. Returned as a STRING ("28"), not a number, so a consumer
+          must cast before comparing.
+      - name: lastUpdated
+        type: string
+        format: non-standard
+        description: >-
+          Stock freshness timestamp in the form "09/02/26 19:10 PM" — a two-digit year, an
+          ambiguous US date order, and a 12-hour "PM" suffix attached to a 24-hour hour. Not
+          ISO 8601 and not unambiguously parseable.
+      - name: buyLinkUrl
+        type: string
+        format: uri
+        description: Absolute deep link into the distributor's own part-detail page, carrying Amphenol campaign/UTM parameters.
+      - name: buyLinkText
+        type: string
+        description: Label for the buy link. "BUY" in every row observed.
+    relationships:
+      - type: belongs_to
+        target: SearchResult
+        via: rows
+id_schemes:
+  - entity: DistributorListing
+    field: partNumber
+    scheme: Amphenol part number (e.g. 10-730188-230); no documented format or checksum
+  - entity: DistributorListing
+    field: distributorNumber
+    scheme: distributor-assigned SKU; namespace differs per distributor and is not qualified in the payload
+gaps:
+  - No product entity. The API returns who stocks a part, never what the part is.
+  - No pricing field, despite a buy link into a distributor that has one.
+  - No pagination, so total and rows are always the same length and a large set cannot be walked.
+  - Both qty and lastUpdated are strings that a consumer must parse heuristically.
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

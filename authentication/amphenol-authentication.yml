@@ -1,0 +1,62 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  live probes of amphenol-automotive.com/.well-known/oauth-authorization-server,
+  amphenol-automotive.com/.well-known/oauth-protected-resource and
+  amphenol-industrial.com/wp-json/parts-direct-search/v1/search
+provider: Amphenol
+providerId: amphenol
+description: >-
+  Amphenol publishes no developer authentication documentation, and there is no API key
+  programme, signup or console anywhere on its sites. Two authentication postures were
+  nevertheless observed directly on live Amphenol endpoints, and they sit at opposite ends:
+  one surface is fully anonymous, the other is a standards-compliant OAuth 2.1 flow.
+schemes:
+  - id: none
+    type: none
+    surface: Amphenol Industrial Parts Direct Search
+    endpoint: https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search
+    description: >-
+      No credential of any kind. A plain GET with a searchTerm query parameter returns HTTP 200
+      and a JSON body of distributor stock rows. No API key, no bearer token, no cookie, no
+      nonce, no Origin restriction was observed.
+    evidence:
+      url: https://amphenol-industrial.com/wp-json/parts-direct-search/v1/search?searchTerm=RADSOK
+      status: 200
+      content_type: application/json; charset=UTF-8
+  - id: oauth2
+    type: oauth2
+    surface: Amphenol Automotive MCP server
+    endpoint: https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
+    description: >-
+      OAuth 2.0 authorization-code flow with PKCE, advertised through RFC 8414 authorization
+      server metadata and RFC 9728 protected resource metadata. The token endpoint accepts
+      public clients (token_endpoint_auth_methods_supported is ["none"]) and the server supports
+      client ID metadata documents, so a client can register itself by URL rather than
+      out-of-band. Bearer token is presented in the Authorization header.
+    flows:
+      authorizationCode:
+        authorizationUrl: https://amphenol-automotive.com/oauth/authorize
+        tokenUrl: https://amphenol-automotive.com/oauth/token
+        revocationUrl: https://amphenol-automotive.com/oauth/revoke
+        refreshSupported: true
+        pkce:
+          required: true
+          methods:
+            - S256
+        scopes:
+          mcp: Access to the Model Context Protocol resource
+    bearer_methods_supported:
+      - header
+    evidence:
+      url: https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
+      status: 401
+      body: '{"code":"mcp_unauthorized","message":"MCP authentication required."}'
+docs: null
+docs_note: >-
+  No authentication documentation is published. Both schemes above were established by probing,
+  not by reading a page. www.amphenol.com returns HTTP 403 at the CDN edge to non-browser
+  clients, so a documentation page there could not be checked by this run.
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

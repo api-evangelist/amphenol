@@ -1,0 +1,90 @@
+generated: '2026-09-02'
+method: probed
+source: https://amphenol-automotive.com/.well-known/oauth-protected-resource
+provider: Amphenol
+providerId: amphenol
+name: Amphenol Automotive MCP Server
+description: >-
+  Amphenol Automotive (amphenol-automotive.com) runs a live, remotely reachable Model Context
+  Protocol server. It was not found in any documentation — it was discovered by probing
+  /.well-known/oauth-authorization-server, which returned an RFC 8414 document declaring the
+  single scope "mcp", and then /.well-known/oauth-protected-resource, an RFC 9728 document
+  naming the resource https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server. The site's
+  WordPress REST index confirms a registered "mcp" namespace with the routes /mcp,
+  /mcp/mcp-oauth-server and /mcp/mcp-adapter-default-server.
+status: live
+deployment:
+  mode: remote
+  endpoint: https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
+  auth: oauth
+  verified: probed
+ownership: >-
+  The endpoint is served from amphenol-automotive.com, Amphenol's own automotive division site
+  (its WordPress REST index reports site name "Amphenol"), and the OAuth issuer in the
+  authorization-server document is that same origin. No third-party host is involved.
+authorization:
+  issuer: https://amphenol-automotive.com
+  authorization_endpoint: https://amphenol-automotive.com/oauth/authorize
+  token_endpoint: https://amphenol-automotive.com/oauth/token
+  revocation_endpoint: https://amphenol-automotive.com/oauth/revoke
+  grant_types_supported:
+    - authorization_code
+    - refresh_token
+  code_challenge_methods_supported:
+    - S256
+  token_endpoint_auth_methods_supported:
+    - none
+  client_id_metadata_document_supported: true
+  scopes_supported:
+    - mcp
+  bearer_methods_supported:
+    - header
+  documents:
+    - well-known/amphenol-automotive-oauth-authorization-server.json
+    - well-known/amphenol-automotive-oauth-protected-resource.json
+tools:
+  status: auth-gated
+  count: null
+  note: >-
+    An anonymous POST of {"jsonrpc":"2.0","id":1,"method":"tools/list"} to the endpoint returns
+    HTTP 401 {"code":"mcp_unauthorized","message":"MCP authentication required."}; the sibling
+    route /wp-json/mcp/mcp-adapter-default-server returns HTTP 401
+    {"code":"rest_forbidden"}. The WordPress Abilities endpoint the adapter projects tools from,
+    /wp-json/wp-abilities/v1/abilities, also returns HTTP 401. The real tool list and its
+    inputSchemas therefore require an authenticated OAuth introspection and are NOT recorded
+    here. No tool names were guessed.
+implementation:
+  platform: WordPress
+  stack: WordPress MCP Adapter over the WordPress Abilities API (namespace "mcp" registered in the REST index)
+  routes:
+    - /wp-json/mcp
+    - /wp-json/mcp/mcp-oauth-server
+    - /wp-json/mcp/mcp-adapter-default-server
+x-evidence:
+  - url: https://amphenol-automotive.com/.well-known/oauth-authorization-server
+    method: GET
+    status: 200
+    content_type: application/json
+  - url: https://amphenol-automotive.com/.well-known/oauth-protected-resource
+    method: GET
+    status: 200
+    content_type: application/json
+  - url: https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
+    method: POST
+    status: 401
+    body: '{"code":"mcp_unauthorized","message":"MCP authentication required.","data":{"status":401}}'
+  - url: https://amphenol-automotive.com/wp-json/mcp/mcp-adapter-default-server
+    method: POST
+    status: 401
+    body: '{"code":"rest_forbidden","message":"Sorry, you are not allowed to do that.","data":{"status":401}}'
+  - url: https://amphenol-automotive.com/wp-json/wp-abilities/v1/abilities
+    method: GET
+    status: 401
+  - url: https://amphenol-automotive.com/wp-json/
+    method: GET
+    status: 200
+    note: REST index lists the "mcp" namespace and its three routes
+checked: '2026-09-02'
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

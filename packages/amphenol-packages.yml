@@ -1,0 +1,169 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  GitHub organization search plus the npm, PyPI, RubyGems and NuGet registry metadata endpoints
+provider: Amphenol
+providerId: amphenol
+description: >-
+  Amphenol publishes no API client SDK on any package registry — npm, PyPI, RubyGems, NuGet,
+  Maven Central, crates.io and pkg.go.dev all return nothing first-party. What it does publish,
+  under its own GitHub organizations, is source-distributed engineering code: Arduino/C++
+  drivers for Amphenol Advanced Sensors parts, and C#/Python test-automation libraries from
+  Amphenol Borisch Technologies. None of them is a client for an Amphenol web API; they talk to
+  hardware. They are recorded here because they are the company's only first-party published
+  code, and because their release currency is a real signal.
+notes: >-
+  CURRENCY: not one of these repositories has ever cut a GitHub release or a tag. There is no
+  version number to read anywhere, so every entry carries version: null and published: null
+  honestly rather than a guess, with the last commit date recorded separately as the only
+  available decay signal. A consumer cloning these gets whatever is on the default branch that
+  day and cannot pin.
+registries_searched:
+  - registry: npm
+    query: amphenol
+    result: 2 matches, neither first-party (aravint-ui-nav; node-t9602, a third-party driver for the Amphenol T9602 sensor by pmaldera)
+    status: 200
+  - registry: pypi
+    query: amphenol
+    result: no such project
+    status: 404
+  - registry: nuget
+    result: no first-party package found
+  - registry: rubygems
+    result: no first-party package found
+  - registry: maven-central
+    result: no first-party package found
+  - registry: crates.io
+    result: no first-party package found
+  - registry: pkg.go.dev
+    result: no first-party package found
+packages:
+  - name: AmphenolAdvancedSensors/Telaire
+    official: true
+    registry: github
+    language: Arduino/C
+    url: https://github.com/AmphenolAdvancedSensors/Telaire
+    description: Arduino code to communicate with and read Amphenol Advanced Sensors Telaire CO2 and environmental sensors.
+    license: GPL-3.0
+    version: null
+    published: null
+    version_note: no GitHub release and no tag has ever been published; nothing to pin
+    last_commit: '2020-12-11'
+  - name: AmphenolAdvancedSensors/Thermometrics
+    official: true
+    registry: github
+    language: C++
+    url: https://github.com/AmphenolAdvancedSensors/Thermometrics
+    description: Arduino code for reading Amphenol Thermometrics NTC thermistors.
+    license: null
+    version: null
+    published: null
+    version_note: no release, no tag, and no license file
+    last_commit: '2021-01-05'
+  - name: AmphenolAdvancedSensors/Novasensor
+    official: true
+    registry: github
+    language: Arduino/C
+    url: https://github.com/AmphenolAdvancedSensors/Novasensor
+    description: Arduino code for reading Amphenol NovaSensor digital and ratiometric pressure sensors.
+    license: GPL-3.0
+    version: null
+    published: null
+    version_note: no release and no tag; last touched in 2018
+    last_commit: '2018-09-03'
+  - name: AmphenolAdvancedSensors/Evaluation_Kits
+    official: true
+    registry: github
+    language: Arduino/C
+    url: https://github.com/AmphenolAdvancedSensors/Evaluation_Kits
+    description: Firmware and sample code shipped with Amphenol Advanced Sensors evaluation kits.
+    license: GPL-3.0
+    version: null
+    published: null
+    version_note: no release and no tag
+    last_commit: '2020-04-24'
+  - name: Amphenol-Borisch-Technologies/TestExecutive
+    official: true
+    registry: github
+    language: C#
+    url: https://github.com/Amphenol-Borisch-Technologies/TestExecutive
+    description: .NET test-executive framework used by Amphenol Borisch Technologies for automated test equipment.
+    license: MIT
+    version: null
+    published: null
+    version_note: no release and no tag, but this is the most actively maintained Amphenol repository found
+    last_commit: '2026-08-26'
+  - name: Amphenol-Borisch-Technologies/TestPlan
+    official: true
+    registry: github
+    language: C#
+    url: https://github.com/Amphenol-Borisch-Technologies/TestPlan
+    description: Test-plan definition library paired with TestExecutive.
+    license: MIT
+    version: null
+    published: null
+    version_note: no release and no tag
+    last_commit: '2026-04-07'
+  - name: Amphenol-Borisch-Technologies/Genesys-Python-Library
+    official: true
+    registry: github
+    language: Python
+    url: https://github.com/Amphenol-Borisch-Technologies/Genesys-Python-Library
+    description: Python library for programmatic control of TDK-Lambda Genesys power supplies.
+    license: MIT
+    version: null
+    published: null
+    version_note: not published to PyPI; no release and no tag
+    last_commit: '2022-04-05'
+  - name: Amphenol-Borisch-Technologies/Zup-Python-Library
+    official: true
+    registry: github
+    language: Python
+    url: https://github.com/Amphenol-Borisch-Technologies/Zup-Python-Library
+    description: Python library for programmatic control of TDK-Lambda Zup power supplies.
+    license: MIT
+    version: null
+    published: null
+    version_note: not published to PyPI; no release and no tag
+    last_commit: '2022-10-16'
+  - name: Amphenol-Borisch-Technologies/USB-ERB24
+    official: true
+    registry: github
+    language: C#
+    url: https://github.com/Amphenol-Borisch-Technologies/USB-ERB24
+    description: C#/.NET library for the Measurement Computing USB-ERB24 relay board.
+    license: MIT
+    version: null
+    published: null
+    version_note: no release and no tag
+    last_commit: '2024-04-25'
+organizations:
+  - login: AmphenolAdvancedSensors
+    url: https://github.com/AmphenolAdvancedSensors
+    name: Amphenol Advanced Sensors
+    public_repos: 4
+    website: www.amphenol-sensors.com
+  - login: Amphenol-Borisch-Technologies
+    url: https://github.com/Amphenol-Borisch-Technologies
+    name: Amphenol Borisch Technologies
+    public_repos: 11
+    website: https://www.borisch.com/
+  - login: Amphenol-DevOps
+    url: https://github.com/Amphenol-DevOps
+    name: Amphenol Tuchel Industrial GmbH
+    public_repos: 2
+    note: contains only forks of third-party projects (Nextcloud logreader, BagItTools)
+  - login: AmphenolHQ
+    url: https://github.com/AmphenolHQ
+    name: Amphenol
+    public_repos: 0
+    note: corporate organization exists but publishes nothing
+  - login: Amphenol-RF
+    url: https://github.com/Amphenol-RF
+    public_repos: 0
+  - login: Amphenol-Japan
+    url: https://github.com/Amphenol-Japan
+    public_repos: 0
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com

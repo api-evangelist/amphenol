@@ -99,6 +99,11 @@ apis:
   - aid: amphenol:automotive-mcp
     name: Amphenol Automotive MCP Server
     tags:
+      - MCP
+      - Automotive
+      - Agent Interface
+      - Authentication
+    tags_raw:
       - Model Context Protocol
       - Automotive
       - Agent Interface

@@ -1,7 +1,9 @@
 ---
 title: Here's Why Amphenol Stock Popped Today (Hint
 url: https://finance.yahoo.com/news/heres-why-amphenol-stock-popped-173637058.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amphenol" press release artificial intelligence'
 position: 5
 source: serpapi-google

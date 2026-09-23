@@ -1,7 +1,9 @@
 ---
 title: Artificial Intelligence Machine Learning | AI / ML
 url: https://www.amphenol-cs.com/artificial-intelligence
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amphenol" press release artificial intelligence'
 position: 3
 source: serpapi-google

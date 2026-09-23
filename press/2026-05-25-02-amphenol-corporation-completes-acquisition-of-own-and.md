@@ -1,7 +1,9 @@
 ---
 title: Amphenol Corporation Completes Acquisition of OWN and ...
 url: https://investors.amphenol.com/news-and-events/news-details/2025/Amphenol-Corporation-Completes-Acquisition-of-OWN-and-DAS-Businesses-From-CommScope/default.aspx
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amphenol" press release artificial intelligence'
 position: 2
 source: serpapi-google

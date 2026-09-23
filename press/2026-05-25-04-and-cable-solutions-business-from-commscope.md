@@ -1,7 +1,9 @@
 ---
 title: and cable solutions business from commscope
 url: https://www.sec.gov/Archives/edgar/data/820313/000110465925073344/tm2522435d1_ex99-1.htm
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Amphenol" press release artificial intelligence'
 position: 4
 source: serpapi-google

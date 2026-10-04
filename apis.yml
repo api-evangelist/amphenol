@@ -52,7 +52,6 @@ apis:
       - Interconnect Systems
       - Manufacturing
     image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://www.amphenol.com
     humanURL: https://www.amphenol.com
     properties:
       - type: Website
@@ -65,37 +64,20 @@ apis:
       including /robots.txt. Two real API surfaces do exist elsewhere in the estate, both
       undocumented and both found by probing the division hosts -- see the parts-direct-search and
       automotive-mcp entries.
-  - aid: amphenol:parts-direct-search
-    name: Amphenol Industrial Parts Direct Search API
+  - aid: amphenol:amphenol-industrial-com-website-wordpress-rest
+    name: Amphenol Website (WordPress REST)
+    description: 'The public WordPress REST API (wp-json) of the Amphenol website at amphenol-industrial.com:
+      the route index of the site''s content management system, catalogued as one site surface rather than
+      as separate APIs.'
+    baseURL: https://amphenol-industrial.com/wp-json
     tags:
-      - Electronic Connectors
-      - Distributor Inventory
-      - Product Search
-      - Manufacturing
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://amphenol-industrial.com/wp-json/parts-direct-search/v1
-    humanURL: https://amphenol-industrial.com/connectors/parts-search/
-    description: >-
-      An undocumented but live and fully anonymous JSON endpoint that backs Amphenol Industrial's
-      own Parts Search page. GET /search?searchTerm=<part> returns {total, rows[]} where each row
-      is one authorised distributor's live stock for an Amphenol part number: distributor name,
-      the distributor's own SKU, quantity on hand, a last-updated timestamp and a deep buy link.
-      It takes exactly one parameter, offers no pagination, requires no key, and returns no
-      rate-limit headers. Amphenol publishes no documentation, no contract and no support channel
-      for it; everything recorded here was established by probing the endpoint directly.
+    - WordPress
+    x-surface: platform-generated
     properties:
-      - type: Authentication
-        url: authentication/amphenol-authentication.yml
-      - type: ErrorCatalog
-        url: errors/amphenol-problem-types.yml
-      - type: DataModel
-        url: data-model/amphenol-data-model.yml
-      - type: Conventions
-        url: conventions/amphenol-conventions.yml
-      - type: RateLimits
-        url: rate-limits/amphenol-rate-limits.yml
-      - type: LLMsTxt
-        url: llms/amphenol-industrial-llms.txt
+    - type: Documentation
+      url: https://amphenol-industrial.com/wp-json
+    x-platform: wordpress
+    x-platform-surface: rest
   - aid: amphenol:automotive-mcp
     name: Amphenol Automotive MCP Server
     tags:
@@ -130,6 +112,9 @@ apis:
         url: well-known/amphenol-well-known.yml
       - type: LLMsTxt
         url: llms/amphenol-automotive-llms.txt
+    x-surface: platform-generated
+    x-platform: wordpress
+    x-platform-surface: mcp-plugin
 common:
   - type: Website
     url: https://www.amphenol.com/
@@ -221,6 +206,8 @@ common:
         description: Tier 1 and Tier 2 supplier to major automotive manufacturers including GM, Ford, Toyota, and EV manufacturers for electrical and electronic connector systems.
       - name: Telecommunications Equipment Manufacturers
         description: Connector and antenna supplier to Ericsson, Nokia, Samsung, and other telecom equipment manufacturers for wireless infrastructure.
+  - type: LLMsTxt
+    url: llms/amphenol-industrial-llms.txt
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com

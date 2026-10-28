@@ -1,4 +1,4 @@
-# Amphenol (amphenol)
+# Amphenol
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,77 +66,133 @@
 
 Amphenol is one of the world's largest designers, manufacturers, and marketers of electrical, electronic, and fiber optic connectors, interconnect systems, antennas, sensors, and cables used across military-aerospace, industrial, automotive, information technology, mobile phones, wireless infrastructure, broadband, medical device, and professional audio markets worldwide.
 
-**URL:** [https://www.amphenol.com](https://www.amphenol.com)
+**Areas:** Electronic Connectors · Interconnect Systems · Fiber Optics · Sensors · Aerospace · Automotive · Defense · Manufacturing · Fortune 500
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amphenol on APIs.io
 
-## Tags:
+Everything profiled for Amphenol is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amphenol/](https://apis.io/providers/amphenol/)** — or go straight to one of the APIs or properties below.
 
- - Electronic Connectors, Interconnect Systems, Fiber Optics, Sensors, Aerospace, Automotive, Defense, Manufacturing
+### APIs (3)
 
-## Timestamps
+- [Amphenol Website](https://apis.io/apis/amphenol/website/) — Amphenol designs, manufactures, and markets electrical, electronic, and fiber optic connectors, interconnect systems, antennas, sensors, and cables. The…
+- [Amphenol Website (WordPress REST)](https://apis.io/apis/amphenol/amphenol-industrial-com-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the Amphenol website at amphenol-industrial.com: the route index of the site's content management system,…
+- [Amphenol Automotive MCP Server](https://apis.io/apis/amphenol/automotive-mcp/) — A live Model Context Protocol resource served by Amphenol's automotive division, discovered through RFC 8414 authorization-server metadata and RFC 9728…
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Amphenol Website
-Amphenol designs, manufactures, and markets electrical, electronic, and fiber optic connectors, interconnect systems, antennas, sensors, and cables. The company does not currently publish a public developer API.
+#### MCP servers (1)
 
-**Human URL:** [https://www.amphenol.com](https://www.amphenol.com)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags:
+- [Amphenol Automotive MCP Server](https://apis.io/servers/amphenol/amphenol-automotive-mcp-server/)
 
- - Electronic Connectors, Interconnect Systems, Manufacturing
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Website](https://www.amphenol.com)
+- [Amphenol Context](https://apis.io/jsonld/amphenol/amphenol-context/)
 
-## Common Properties
+#### Vocabulary (1)
 
-- [Portal](https://www.amphenol.com)
-- [PrivacyPolicy](https://www.amphenol.com/privacy-policy)
-- [TermsOfService](https://www.amphenol.com/terms-of-use)
+The provider's domain terms, defined.
+
+- [Amphenol Industrial Manufacturing Vocabulary](https://apis.io/vocabularies/amphenol/amphenol-vocabulary/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amphenol Authentication](https://apis.io/security/amphenol/amphenol-authentication/)
+- [Amphenol Domain Security](https://apis.io/security/amphenol/amphenol-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Amphenol Scopes](https://apis.io/scopes/amphenol/amphenol-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amphenol Plans Pricing](https://apis.io/plans/amphenol/amphenol-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amphenol Rate Limits](https://apis.io/rate-limits/amphenol/amphenol-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amphenol Finops](https://apis.io/finops/amphenol/amphenol-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.amphenol.com/)
 - [Support](https://www.amphenol.com/contact)
-- [LinkedIn](https://www.linkedin.com/company/amphenol-corporation)
+- [Blog](https://amphenol-industrial.com/news/)
+- [Terms of service](https://www.amphenol.com/terms-of-use)
+- [Privacy policy](https://www.amphenol.com/privacy-policy)
+- [GitHub](https://github.com/AmphenolAdvancedSensors)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Electrical Connectors | High-performance electrical connectors for military, aerospace, industrial, automotive, and consumer electronics applications including the industry-standard BNC and MIL-DTL-38999 cylindrical connectors. |
-| Fiber Optic Connectivity | Fiber optic connectors, cables, and interconnect systems for telecommunications, data center, and military applications through Amphenol Fiber Systems International (AFSI). |
-| Coaxial Cables and RF Connectors | RF connectors and coaxial cables for wireless infrastructure, broadband, and communications equipment operating across a wide frequency range. |
-| Sensor Solutions | Electronic sensing solutions for industrial, automotive, and medical applications measuring pressure, temperature, position, and other physical parameters. |
-| Antenna Systems | Antenna systems for wireless infrastructure, mobile devices, automotive, and IoT applications supporting cellular, Wi-Fi, GPS, and other wireless protocols. |
-| Aerospace Connectors | Mil-spec and high-reliability aerospace connectors through Amphenol Aerospace for aircraft, defense systems, and space applications meeting MIL-DTL-38999 and other military specifications. |
-| Defense and Military Connectors | Ruggedized connectors for defense, aviation, rail, energy, entertainment, and space industries through Amphenol Socapex with qualified products for harsh environments. |
-| Automotive Connectors | Electrical connectors and interconnect systems for automotive applications including EV powertrains, ADAS, infotainment, and chassis systems. |
-| Medical Connectors | Specialized connectors for medical devices requiring biocompatibility, sterilizability, and high reliability for patient-critical applications. |
+**Kin Score 29.9** — thin · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 63.3 |
+| Contract quality | 14.7 |
+| Contract governance | 31.8 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 38.1 |
+| Access clarity | 26.3 |
 
-| Name | Description |
-|------|-------------|
-| Aerospace and Defense Systems | Connect avionics, weapons systems, and defense electronics with mil-spec connectors meeting the most demanding environmental and reliability requirements. |
-| Automotive Electrification | Enable electric vehicle powertrains, battery management systems, and charging infrastructure with high-voltage and high-current automotive connectors. |
-| 5G Infrastructure | Support 5G base station deployment with RF connectors, antennas, and coaxial cables for wireless infrastructure equipment. |
-| Data Center Connectivity | Interconnect servers, switches, and storage with high-speed electrical and fiber optic connectors for data center infrastructure. |
-| Industrial Automation | Connect industrial sensors, actuators, and control systems with rugged connectors and cables designed for harsh factory environments. |
-| Medical Device Integration | Provide reliable electrical connections for medical imaging, patient monitoring, and surgical equipment requiring biocompatible materials. |
+**Agent readiness 21.9** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
 
-| Name | Description |
-|------|-------------|
-| Aerospace and Defense OEMs | Qualified supplier to Boeing, Lockheed Martin, Raytheon, and other defense and aerospace original equipment manufacturers. |
-| Automotive OEM Supply Chain | Tier 1 and Tier 2 supplier to major automotive manufacturers including GM, Ford, Toyota, and EV manufacturers for electrical and electronic connector systems. |
-| Telecommunications Equipment Manufacturers | Connector and antenna supplier to Ericsson, Nokia, Samsung, and other telecom equipment manufacturers for wireless infrastructure. |
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
 
-## Maintainers
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amphenol/](https://apis.io/providers/amphenol/).
 
-**FN:** API Evangelist
+## How this profile is made
 
-**Email:** info@apievangelist.com
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amphenol: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amphenol/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).

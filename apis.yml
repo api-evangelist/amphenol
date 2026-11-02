@@ -1,0 +1,221 @@
+aid: amphenol
+url: https://raw.githubusercontent.com/api-evangelist/amphenol/refs/heads/main/apis.yml
+name: Amphenol
+description: >-
+  Amphenol is one of the world's largest designers, manufacturers, and marketers of
+  electrical, electronic, and fiber optic connectors, interconnect systems, antennas,
+  sensors, and cables used across military-aerospace, industrial, automotive, information
+  technology, mobile phones, wireless infrastructure, broadband, medical device, and
+  professional audio markets worldwide.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amphenol.png
+tags:
+  - Electronic Connectors
+  - Interconnect Systems
+  - Fiber Optics
+  - Sensors
+  - Aerospace
+  - Automotive
+  - Defense
+  - Manufacturing
+  - Fortune 500
+created: '2024-01-01'
+modified: '2026-09-02'
+specificationVersion: '0.23'
+apis:
+  - aid: amphenol:website
+    name: Amphenol Website
+    tags:
+      - Electronic Connectors
+      - Interconnect Systems
+      - Manufacturing
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+    humanURL: https://www.amphenol.com
+    properties:
+      - type: Website
+        url: https://www.amphenol.com
+    description: >-
+      Amphenol designs, manufactures, and markets electrical, electronic, and fiber optic
+      connectors, interconnect systems, antennas, sensors, and cables. The corporate host runs no
+      developer programme: no portal, no documentation, no signup, no key and no published
+      contract, and it returns HTTP 403 at the CDN edge to every non-browser client on every path,
+      including /robots.txt. Two real API surfaces do exist elsewhere in the estate, both
+      undocumented and both found by probing the division hosts -- see the parts-direct-search and
+      automotive-mcp entries.
+  - aid: amphenol:amphenol-industrial-com-website-wordpress-rest
+    name: Amphenol Website (WordPress REST)
+    description: 'The public WordPress REST API (wp-json) of the Amphenol website at amphenol-industrial.com:
+      the route index of the site''s content management system, catalogued as one site surface rather than
+      as separate APIs.'
+    baseURL: https://amphenol-industrial.com/wp-json
+    tags:
+    - WordPress
+    x-surface: platform-generated
+    properties:
+    - type: Documentation
+      url: https://amphenol-industrial.com/wp-json
+    x-platform: wordpress
+    x-platform-surface: rest
+  - aid: amphenol:automotive-mcp
+    name: Amphenol Automotive MCP Server
+    tags:
+      - MCP
+      - Automotive
+      - Agent Interface
+      - OAuth
+      - Authentication
+    tags_raw:
+      - Model Context Protocol
+      - Automotive
+      - Agent Interface
+      - OAuth
+      - Authentication
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+    baseURL: https://amphenol-automotive.com/wp-json/mcp/mcp-oauth-server
+    humanURL: https://amphenol-automotive.com/
+    description: >-
+      A live Model Context Protocol resource served by Amphenol's automotive division, discovered
+      through RFC 8414 authorization-server metadata and RFC 9728 protected-resource metadata at
+      that host's well-known paths. Access is OAuth 2.0 authorization-code with PKCE (S256),
+      public clients permitted, bearer token in the Authorization header, and a single coarse
+      scope named "mcp". An anonymous tools/list returns HTTP 401, so the tool set and its input
+      schemas are not public and none has been guessed at here. It is the only agent-facing
+      surface anywhere in the Amphenol estate.
+    properties:
+      - type: MCPServer
+        url: mcp/amphenol-mcp.yml
+      - type: Authentication
+        url: authentication/amphenol-authentication.yml
+      - type: OAuthScopes
+        url: scopes/amphenol-scopes.yml
+      - type: WellKnown
+        url: well-known/amphenol-well-known.yml
+      - type: LLMsTxt
+        url: llms/amphenol-automotive-llms.txt
+    x-surface: platform-generated
+    x-platform: wordpress
+    x-platform-surface: mcp-plugin
+common:
+  - type: Website
+    url: https://www.amphenol.com/
+  - type: DomainSecurity
+    url: security/amphenol-domain-security.yml
+  - type: LLMsTxt
+    url: llms/amphenol-llms.txt
+  - type: WellKnown
+    url: well-known/amphenol-well-known.yml
+  - type: MCPServer
+    url: mcp/amphenol-mcp.yml
+  - type: Packages
+    url: packages/amphenol-packages.yml
+  - type: Authentication
+    url: authentication/amphenol-authentication.yml
+  - type: OAuthScopes
+    url: scopes/amphenol-scopes.yml
+  - type: Conventions
+    url: conventions/amphenol-conventions.yml
+  - type: ErrorCatalog
+    url: errors/amphenol-problem-types.yml
+  - type: DataModel
+    url: data-model/amphenol-data-model.yml
+  - type: Conformance
+    url: conformance/amphenol-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/amphenol-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/amphenol-rate-limits.yml
+  - type: Plans
+    url: plans/amphenol-plans-pricing.yml
+  - type: FinOps
+    url: finops/amphenol-finops.yml
+  - type: Vocabulary
+    url: vocabulary/amphenol-vocabulary.yml
+  - type: GitHubOrganization
+    url: https://github.com/AmphenolAdvancedSensors
+  - type: Blog
+    url: https://amphenol-industrial.com/news/
+  - type: Portal
+    url: https://www.amphenol.com
+  - type: PrivacyPolicy
+    url: https://www.amphenol.com/privacy-policy
+  - type: TermsOfService
+    url: https://www.amphenol.com/terms-of-use
+  - type: Support
+    url: https://www.amphenol.com/contact
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/amphenol
+  - type: Features
+    data:
+      - name: Electrical Connectors
+        description: High-performance electrical connectors for military, aerospace, industrial, automotive, and consumer electronics applications including the industry-standard BNC and MIL-DTL-38999 cylindrical connectors.
+      - name: Fiber Optic Connectivity
+        description: Fiber optic connectors, cables, and interconnect systems for telecommunications, data center, and military applications through Amphenol Fiber Systems International (AFSI).
+      - name: Coaxial Cables and RF Connectors
+        description: RF connectors and coaxial cables for wireless infrastructure, broadband, and communications equipment operating across a wide frequency range.
+      - name: Sensor Solutions
+        description: Electronic sensing solutions for industrial, automotive, and medical applications measuring pressure, temperature, position, and other physical parameters.
+      - name: Antenna Systems
+        description: Antenna systems for wireless infrastructure, mobile devices, automotive, and IoT applications supporting cellular, Wi-Fi, GPS, and other wireless protocols.
+      - name: Aerospace Connectors
+        description: Mil-spec and high-reliability aerospace connectors through Amphenol Aerospace for aircraft, defense systems, and space applications meeting MIL-DTL-38999 and other military specifications.
+      - name: Defense and Military Connectors
+        description: Ruggedized connectors for defense, aviation, rail, energy, entertainment, and space industries through Amphenol Socapex with qualified products for harsh environments.
+      - name: Automotive Connectors
+        description: Electrical connectors and interconnect systems for automotive applications including EV powertrains, ADAS, infotainment, and chassis systems.
+      - name: Medical Connectors
+        description: Specialized connectors for medical devices requiring biocompatibility, sterilizability, and high reliability for patient-critical applications.
+  - type: UseCases
+    data:
+      - name: Aerospace and Defense Systems
+        description: Connect avionics, weapons systems, and defense electronics with mil-spec connectors meeting the most demanding environmental and reliability requirements.
+      - name: Automotive Electrification
+        description: Enable electric vehicle powertrains, battery management systems, and charging infrastructure with high-voltage and high-current automotive connectors.
+      - name: 5G Infrastructure
+        description: Support 5G base station deployment with RF connectors, antennas, and coaxial cables for wireless infrastructure equipment.
+      - name: Data Center Connectivity
+        description: Interconnect servers, switches, and storage with high-speed electrical and fiber optic connectors for data center infrastructure.
+      - name: Industrial Automation
+        description: Connect industrial sensors, actuators, and control systems with rugged connectors and cables designed for harsh factory environments.
+      - name: Medical Device Integration
+        description: Provide reliable electrical connections for medical imaging, patient monitoring, and surgical equipment requiring biocompatible materials.
+  - type: Integrations
+    data:
+      - name: Aerospace and Defense OEMs
+        description: Qualified supplier to Boeing, Lockheed Martin, Raytheon, and other defense and aerospace original equipment manufacturers.
+      - name: Automotive OEM Supply Chain
+        description: Tier 1 and Tier 2 supplier to major automotive manufacturers including GM, Ford, Toyota, and EV manufacturers for electrical and electronic connector systems.
+      - name: Telecommunications Equipment Manufacturers
+        description: Connector and antenna supplier to Ericsson, Nokia, Samsung, and other telecom equipment manufacturers for wireless infrastructure.
+  - type: LLMsTxt
+    url: llms/amphenol-industrial-llms.txt
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com
+
+x-enrichment:
+  date: '2026-09-02'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

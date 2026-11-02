@@ -1,0 +1,66 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Amphenol
+providerId: amphenol
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Electronic Connectors
+  - Interconnect Systems
+  - Industrial
+description: >-
+  Amphenol does not publish a public developer API or pricing catalog. Product
+  pricing for connectors and interconnect systems is quoted by distributors
+  (Digi-Key, Mouser, Avnet, etc.) or via direct sales contracts, and there is
+  no API plan tier or metered request price to reconcile.
+notes: >-
+  No public developer plan catalog. Component pricing is distributor-quoted,
+  not API-metered.
+sources:
+  - https://www.amphenol.com
+plans:
+  - id: amphenol-no-public-api
+    name: No Public API Program
+    type: enterprise
+    description: >-
+      Placeholder entry. Amphenol does not publish developer API tiers. EDI /
+      catalog feeds to distributors are bilateral.
+    entries:
+      - label: Access
+        description: Distributor / direct-sales catalog feeds
+        name: access
+        type: flat
+        metric: varies
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'contact provider'
+        userMultiplied: false
+    elements:
+      - name: Distributor EDI Feeds
+      - name: Direct Sales Contract
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  plans:
+  - name: No Public API Program
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - per-use
